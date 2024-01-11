@@ -16,7 +16,8 @@
 
 //set the splash screen to show by default
   // [RNSplashScreen show];
-  return [super application:application didFinishLaunchingWithOptions:launchOptions];
+  // return [super application:application didFinishLaunchingWithOptions:launchOptions];
+BOOL ret = [super application:application didFinishLaunchingWithOptions:launchOptions]; if (ret == YES) { [RNSplashScreen show];  } return ret;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
