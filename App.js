@@ -1,23 +1,23 @@
-import { View, Text,SafeAreaView,StyleSheet } from 'react-native'
-import React from 'react'
-import Person from './Components/Person'
-
-import User from './Components/User'
-import { datax } from './Components/data'
-
+import React, {useEffect, useState} from 'react';
+import SplashScreen from 'react-native-splash-screen';
+import Counter from './Components/Counter';
 
 const App = () => {
 
-  
-  return (
-    <>
-    <Person firstname="Peter" lastname="Parker" age={23}/>
-    <User data={datax} />
-    
-    </>
-  )
-}
+  const [count,setCount] = useState(0)
+
+  useEffect(()=>{
+    SplashScreen.hide();
+  },[]);
+
+    const clickHandler=(val)=>{
+
+
+        // setCount(count+1)
+        setCount(prevCount=>prevCount+val)  // optimised
+    }
+
+  return <Counter count={count} clickHandler={clickHandler} />;
+};
 
 export default App;
-
-
