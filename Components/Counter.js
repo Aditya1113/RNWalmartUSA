@@ -1,5 +1,6 @@
-import { View, Text,SafeAreaView,StyleSheet,Button,TouchableOpacity } from 'react-native'
+import { View, Text,SafeAreaView,StyleSheet,Button,TouchableOpacity,TextInput } from 'react-native'
 import React, { useState } from 'react'
+
 
 
 export default function Counter(props) {
@@ -14,6 +15,12 @@ export default function Counter(props) {
       color="red"
       onPress={()=>props.clickHandler(5)}
       />
+      <TextInput
+      placeholder="enter name"
+      onChangeText={(val)=>props.setInput(val)}
+      />
+
+      <Text>{props.input}</Text>
 
     <TouchableOpacity onPress={()=>props.clickHandler(2)}>
       <Text style={styles.text}>Add</Text>

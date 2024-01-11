@@ -1,23 +1,27 @@
-import React, {useEffect, useState} from 'react';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import Home from './screens/Home';
+import About from './screens/About';
 import SplashScreen from 'react-native-splash-screen';
-import Counter from './Components/Counter';
+import { useEffect } from 'react';
+import Login from './screens/Login';
 
 const App = () => {
-
-  const [count,setCount] = useState(0)
-
-  useEffect(()=>{
+  useEffect(() => {
     SplashScreen.hide();
-  },[]);
+  }, []);
 
-    const clickHandler=(val)=>{
+  const Stack = createNativeStackNavigator();
 
-
-        // setCount(count+1)
-        setCount(prevCount=>prevCount+val)  // optimised
-    }
-
-  return <Counter count={count} clickHandler={clickHandler} />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="About" component={About} />
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 };
 
 export default App;
