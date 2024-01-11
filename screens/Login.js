@@ -1,10 +1,19 @@
 import { View, Text,StyleSheet,SafeAreaView,Image,TouchableOpacity,TextInput } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 
 import instagram from '../assets/instagram.png'
 
+import show from '../assets/show.png'
+import hide from '../assets/hide.png'
+
 
 export default function Login() {
+
+    const [hidePassword,setHidePassword] = useState(true) 
+
+    const changeVisibility=()=>{
+        setHidePassword(!hidePassword)
+    }
   return (
     <SafeAreaView style={styles.container}>
         {/* logo section */}
@@ -29,7 +38,18 @@ export default function Login() {
             placeholder="password"
             placeholderTextColor="gray"
             style={styles.inputText}
+            secureTextEntry={hidePassword}
             />
+            <TouchableOpacity style={styles.visibilityBtn} onPress={changeVisibility}>
+                <Image
+                source={
+                    hidePassword
+                    ?show
+                    :hide
+                }
+                style={styles.image}
+                />
+            </TouchableOpacity>
         </View>
         {/* login btn */}
         <TouchableOpacity style={styles.loginBtn}>
@@ -107,5 +127,14 @@ const styles = StyleSheet.create({
       alignItems: 'flex-start',
       justifyContent: 'flex-start',
     },
+    visibilityBtn:{
+        position:'absolute',
+        right:12
+    },
+    image:{
+        height:25,
+        width:25
+    }
+
    });
    
