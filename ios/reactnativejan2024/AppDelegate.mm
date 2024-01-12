@@ -1,6 +1,8 @@
 #import "AppDelegate.h"
 #import <React/RCTBundleURLProvider.h>
 
+//import firebase library
+#import <Firebase.h>
 
 //import RN SplashScreen.h
 #import "RNSplashScreen.h"
@@ -9,6 +11,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [FIRApp configure];
   self.moduleName = @"reactnativejan2024";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.

@@ -1,0 +1,6 @@
+module Pods_reactnativejan2024_reactnativejan2024Tests {
+  umbrella header "Pods-reactnativejan2024-reactnativejan2024Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

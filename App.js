@@ -5,6 +5,7 @@ import About from './screens/About';
 import SplashScreen from 'react-native-splash-screen';
 import { useEffect } from 'react';
 import Login from './screens/Login';
+import Register from './screens/Register';
 
 const App = () => {
   useEffect(() => {
@@ -19,6 +20,7 @@ const App = () => {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="About" component={About} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
       </Stack.Navigator>
     </NavigationContainer>
   );
